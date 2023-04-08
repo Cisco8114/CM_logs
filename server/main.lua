@@ -314,7 +314,7 @@ end)
 CreateThread( function() --[[ Version Checker ]]
 	local version = GetResourceMetadata(GetCurrentResourceName(), 'version')
 	SetConvarServerInfo("CM_logs", "V"..version)
-	PerformHttpRequest('https://raw.githubusercontent.com/Cisco8114/CM_logs/master/json/version.json', function(code, res, headers)
+	PerformHttpRequest('https://raw.githubusercontent.com/Cisco8114/CM_logs/main/json/version.json', function(code, res, headers)
 		if code == 200 then
 			local rv = json.decode(res)
 			if tonumber(table.concat(mysplit(rv.version, "."))) > tonumber(table.concat(mysplit(version, "."))) then
